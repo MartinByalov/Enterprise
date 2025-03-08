@@ -1,0 +1,107 @@
+/* Общи стилове за страницата */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("background.jpg");
+    background-position: 10%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Пълна височина на екрана */
+    flex-direction: column; /* Подреждаме елементите вертикално */
+}
+
+/* Контейнер за съдържанието */
+.container {
+    background-color: white;
+    
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column; /* Подреждаме елементите вертикално */
+    align-items: center; /* Центрираме елементите по хоризонтала */
+    justify-content: center; /* Центрираме елементите по вертикала */
+    position: relative; /* За да може логото да бъде позиционирано вътре в контейнера */
+}
+
+/* Стил за заглавието */
+h1 {
+    font-size: 28px;
+    color: #333;
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+.logo {
+    width: 130px; /* Размер на логото */
+    margin-bottom: 10px;
+}
+
+/* Разположение на бутоните (квадрати) */
+.modules {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 колони */
+    gap: 1px; /* 1px разстояние между бутоните */
+    justify-items: center; /* Центриране на бутоните по хоризонтала */
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Стил за бутоните */
+.module-btn {
+    background-color: #454545;
+    color: white;
+    font-size: 16px; /* По-малък шрифт */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px; /* Ширина на бутоните */
+    height: 150px; /* Височина на бутоните */
+    
+}
+
+.module-btn:hover {
+    background-color: black;
+}
+
+/* Стил за съдържанието */
+.content {
+    font-size: 18px;
+    color: #666;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* Защита срещу малки екрани (мобилни устройства) */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .modules {
+        grid-template-columns: 1fr; /* Една колона на мобилни устройства */
+    }
+
+    .module-btn {
+        padding: 15px;
+        font-size: 14px;
+        height: 80px; /* Намаляване на височината за мобилни устройства */
+        width: 80px; /* Намаляване на ширината за мобилни устройства */
+    }
+
+    .content {
+        font-size: 16px;
+    }
+}

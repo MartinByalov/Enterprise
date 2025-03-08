@@ -1,0 +1,84 @@
+/* Задаване на фон за цялата страница */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column; /* Подреждаме елементите вертикално */
+    text-align: center; /* Центрираме текстовете */
+}
+
+/* Стил за контейнера на логото */
+.logo-container {
+    margin-bottom: 30px; /* Разстояние между логото и формата */
+}
+
+.logo {
+    width: 350px; /* Размер на логото */
+    height: auto; /* Автоматично запазване на съотношението */
+}
+
+/* Стил за контейнера на формата */
+form {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Стил за заглавието */
+h1 {
+    font-size: 24px;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+/* Стил за полетата за въвеждане */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Стил за бутон за вход */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #454545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Стил за бутон при задържане на мишката */
+button:hover {
+    background-color: black;
+}
+
+/* Стил за съобщения за грешка */
+.alert {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+/* Стил за индикатор на зареждане */
+#loading {
+    color: #555;
+    font-size: 16px;
+    margin-top: 15px;
+}

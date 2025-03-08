@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ Панел</title>
+    <link rel="stylesheet" href="dashboardStyles.css"> <!-- Линк към CSS файла -->
+</head>
+<body>
+    <div class="container">
+        <h1>Администраторски панел</h1>
+        
+        <div class="modules">
+            <button onclick="loadModule('hr')" class="module-btn">Човешки ресурси</button>
+            <button onclick="loadModule('finance')" class="module-btn">Финанси</button>
+            <button onclick="loadModule('sales')" class="module-btn">Продажби</button>
+            <button onclick="loadModule('warehouse')" class="module-btn">Склад</button>
+        </div>
+
+        <img src="enterpriseLogo.png" alt="Лого" class="logo"> <!-- Логото тук -->
+    </div>
+
+    <script>
+        // Премахваме зареждането на модул
+        function loadModule(module) {
+            document.getElementById("content").innerText = `Избрания модул е: ${module}`;
+        }
+    </script>
+</body>
+</html>

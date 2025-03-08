@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Линк към CSS файла -->
+</head>
+<body>
+    <div class="logo-container">
+        <img src="enterpriseLogo.png" alt="Лого" class="logo"> <!-- Логото тук -->
+    </div>
+    <form id="login-form">
+        <h1>Вход</h1>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Парола" required>
+        <button type="submit">Вход</button>
+        <p class="alert" id="error-message"></p>
+        <div id="loading" style="display: none;">Зареждане...</div> <!-- Индикатор за зареждане -->
+    </form>
+
+    <script>
+        document.getElementById("login-form").addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const errorMessage = document.getElementById("error-message");
+            const loadingIndicator = document.getElementById("loading");
+
+            // Показваме индикатора за зареждане
+            loadingIndicator.style.display = "block";
+
+            // Проверка за валиден имейл
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(email)) {
+                errorMessage.textContent = "Моля, въведете валиден имейл адрес.";
+                loadingIndicator.style.display = "none"; // Скриваме индикатора
+                return;
+            }
+
+            // Проверка за парола
+            if (password.length < 6) {
+                errorMessage.textContent = "Паролата трябва да съдържа поне 6 знака.";
+                loadingIndicator.style.display = "none";
+                return;
+            }
+
+            // Изпращане на заявка за вход
+            const res = await fetch("http://localhost:3000/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, password })
+            });
+
+            const data = await res.json();
+
+            if (data.token) {
+                localStorage.setItem("token", data.token);
+                window.location.href = "dashboard.html"; // Пренасочване
+            } else {
+                errorMessage.textContent = data.error || "Неуспешен вход. Моля, проверете вашите данни.";
+            }
+
+            // Скриваме индикатора за зареждане
+            loadingIndicator.style.display = "none";
+        });
+    </script>
+</body>
+</html>
